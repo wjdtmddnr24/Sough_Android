@@ -55,6 +55,8 @@ public class ScanQRActivity extends AppCompatActivity {
     private TextView cloudWorkspaceName;
     private int mode;
     private TextView qrContentDecompressed;
+    private TextView qrOriginalTitle;
+    private TextView qrDecompressedTitle;
 
 
     @Override
@@ -68,6 +70,8 @@ public class ScanQRActivity extends AppCompatActivity {
 
         qrContent = findViewById(R.id.qr_content);
         qrContentDecompressed = findViewById(R.id.qr_content_decompressed);
+        qrDecompressedTitle = findViewById(R.id.qr_decompressed_title);
+        qrOriginalTitle = findViewById(R.id.qr_original_title);
         cloudContent = findViewById(R.id.cloud_content);
         cloudTitle = findViewById(R.id.cloud_title);
         cloudWorkspaceName = findViewById(R.id.cloud_workspace_name);
@@ -98,15 +102,16 @@ public class ScanQRActivity extends AppCompatActivity {
                 return;
             }
         }
-
+        qrOriginalTitle.setText(String.format("QR코드 원문(%d자)", qrContent.getText().length()));
+        if (!qrContent.getText().equals(content)) {
+            findViewById(R.id.card_decompressed).setVisibility(View.VISIBLE);
+            qrDecompressedTitle.setText(String.format("QR코드 압축 해제(%d자)", content.length()));
+            qrContentDecompressed.setText(content);
+        }
         if (mode == MainActivity.QR_WORK_ADD)
             sendWork();
         else {
             progressBar.setVisibility(View.GONE);
-            if (!qrContent.getText().equals(content)) {
-                findViewById(R.id.card_decompressed).setVisibility(View.VISIBLE);
-                qrContentDecompressed.setText(content);
-            }
         }
 
     }

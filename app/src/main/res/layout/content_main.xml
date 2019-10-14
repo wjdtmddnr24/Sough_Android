@@ -13,6 +13,7 @@
     tools:showIn="@layout/activity_main">
 
     <androidx.cardview.widget.CardView
+        app:cardCornerRadius="8dp"
         android:id="@+id/card_workspace"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -63,6 +64,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="4dp"
+                    app:cardCornerRadius="8dp"
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -85,6 +87,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="8dp"
                     android:id="@+id/card_right"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -113,6 +116,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_bottom"
+                app:cardCornerRadius="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="4dp"
