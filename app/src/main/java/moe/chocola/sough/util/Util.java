@@ -16,7 +16,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Util {
-    private static final String url = "http://chocola.moe:3000/";
+    private static final String url = "http://mansuiki.com:3000/";
     static public Retrofit retrofit = null;
 
     public static Retrofit getRetrofit() {
